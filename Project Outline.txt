@@ -1,0 +1,79 @@
+Project Idea:
+-----------------------------------------------------------------
+The main idea of this project is to give Mira a gift that is essentially a picture frame that displays a new message from me every day. It will use e-paper so that the frame is "off" most of the time and only turns on at midnight to get the new message. However, that is just the main idea... I would also like to have a bunch of other things happening on this frame. I would like to have the following list of inputs available:
+
+* Dial (can turn cw and ccw, and can be pushed like a button)
+* 2xButtons
+* Switch
+* 
+
+These inputs can then change the state of the frame and do a multitude of things:
+
+* Change the screen to a different one
+* Play a sound
+* Send a notification to me
+* 
+
+The best part of this frame though, is that it will connect to wifi to get the new message. However, instead of just getting a new message the whole frame will be re-programable wirelessly. Essentially, I want to make my own specific programing language and when it gets the new info once a day, I can completely change the behaviour of the frame for that day. So on special events (anniversary, Christmas, ect) I can change the frame and make it into something completely different. This language will be written by me in a google sheet and will be fetched by the frame once per day. But the special code will only apply from that day, it will also have a default set of instructions for most days.
+-----------------------------------------------------------------
+
+Code Instructions:
+-----------------------------------------------------------------
+Statement Separator => ;
+Argument Separator => :
+Randomization Splitter => |
+
+
+POSSIBLE INPUTS:
+dial_cw => The dial turned one click clockwise
+dial_ccw => The dial turned one click counter clockwise
+dial_press => The dial was pressed quickly
+dial_long_press => The dial was pressed for >1.5s
+dial_hold => The dial is held down
+
+buttonX_press => The button is pressed quickly
+buttonX_long_press => The button was pressed for >1.5s
+buttonX_double_click => The button was pressed 2 times in 500ms
+butttonX_hold => The button is held down
+
+switch_on => The switch is in the on state
+switch_off => The switch is in the off state
+
+on_load => When a screen is loaded
+on_exit => When a screen is exited
+at:HH:MM => When the system clock is at that timestamp
+every:X_mins => At every X mins
+on_low_battery => When the battery voltage drops below Xv
+
+
+COMMANDS:
+goto:screen_id => clears the screen and gos to the argumented screen
+
+show:widget_id => sets the visability of a screen widget to true
+hide:widget_id => sets the visability of a screen widget to false
+toggle:widget_id => toggles the visibility of the screen widget
+settext:widget_id:text_content => update the text in a widget
+
+refresh:full => completly refresh the screen to clear ghosting
+invert => filps the whit and dark pixels
+
+buzz:melody_name:volume => loops an array of music notes at volume
+tone:frequency:duration => plays a tone for duration
+mute => stop all PWM signals to the buzzer
+
+notify:event_type => send a message to the server
+sync => get the newest information from the server
+
+delay:ms => waits ms before going to next step (non-blocking)
+lock:input => locks an input source (or all if all)
+unlock:input => unlocks an input source (or all if all)
+
+sleep:minutes => forces a deep sleep for minutes duration
+
+setvar:name:value => sets a veriable to value
+ifvar:name:vale:nested_command => does command if var is value
+
+
+
+
+
